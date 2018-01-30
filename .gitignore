@@ -1,3 +1,7 @@
+# Custom added rules
+.idea/**
+
+
 # Created by https://www.gitignore.io/api/macos,python,pycharm,intellij
 
 ### Intellij ###
@@ -121,14 +125,6 @@ Temporary Items
 # Ruby plugin and RubyMine
 
 # Crashlytics plugin (for Android Studio and IntelliJ)
-
-### PyCharm Patch ###
-# Comment Reason: https://github.com/joeblau/gitignore.io/issues/186#issuecomment-215987721
-
-# *.iml
-# modules.xml
-# .idea/misc.xml
-# *.ipr
 
 # Sonarlint plugin
 
