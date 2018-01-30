@@ -5,6 +5,7 @@ We are learning machine leaning techs and intend to create a face recognize chec
 #### Software requirement:
 1. Python 3.6.x
 2. OpenCV 3.4
+3. face_recognition(dlib)
 
 
 
