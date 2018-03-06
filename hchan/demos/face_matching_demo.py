@@ -1,8 +1,8 @@
 import face_recognition
 import time
 
-known_image = face_recognition.load_image_file("resources/full_body_zh1.jpg")
-unknown_image = face_recognition.load_image_file("resources/zh2.jpg")
+known_image = face_recognition.load_image_file("../resources/full_body_zh1.jpg")
+unknown_image = face_recognition.load_image_file("../resources/zh2.jpg")
 
 print(time.clock())
 
