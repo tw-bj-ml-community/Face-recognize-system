@@ -12,7 +12,7 @@ from tensorflow.python.saved_model import signature_constants
 
 from hchan.fake_facenet.inception_resnet_v1 import *
 
-EXPORT_PATH = './tf-model/'
+EXPORT_PATH = './tf_serving_model/'
 MODEL_VERSION = 1
 
 INPUT_SIZE = 160  # the shape of input of inception-resnet-v1 is batch_size,160,160,3

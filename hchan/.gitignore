@@ -1,2 +1,5 @@
 resources/*
 tmp/*
+fake_facenet/logs/*
+fake_facenet/pretrained_model/*
+fake_facenet/tf_serving_model/*

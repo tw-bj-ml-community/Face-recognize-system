@@ -1,6 +1,5 @@
 # Custom added rules
 .idea/**
-pretrained_model/*
 !*/.gitkeep
 
 # Created by https://www.gitignore.io/api/macos,python,pycharm,intellij
