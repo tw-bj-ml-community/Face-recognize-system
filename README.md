@@ -42,4 +42,4 @@ You need download the pretrained model, unzip it and put all the files into 'pre
 Serve model with tensorflow-serving
 ===================
 1. Tensorflow-serving only support linux, on mac we need use [tf-serving with docker](https://www.tensorflow.org/serving/docker)
-2.
+2. More details about TF serving and client demo can be found [here](https://a7744hsc.github.io/machine/learning/2018/03/06/Tensorflow-Serving-101.html), a chinese toturial about TF serving.
