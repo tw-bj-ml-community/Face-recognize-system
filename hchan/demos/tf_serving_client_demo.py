@@ -14,14 +14,14 @@ stub = prediction_service_pb2.beta_create_PredictionService_stub(channel)
 request = predict_pb2.PredictRequest()
 
 # Specify model name (must be the same as when the TensorFlow serving serving was started)
-request.model_spec.name = 'mnist'
+request.model_spec.name = 'facefeature'
 
 # Initalize prediction
 # Specify signature name (should be the same as specified when exporting model)
 # request.model_spec.signature_name = "serving_default"
 
 input_size = 160
-picture = misc.imread('./resources/full_body_zh1.jpg')[:input_size, :input_size, :]
+picture = misc.imread('../resources/full_body_zh1.jpg')[:input_size, :input_size, :]
 picture = picture.reshape([1, input_size, input_size, 3])
 picture = picture.astype(np.float32)
 
