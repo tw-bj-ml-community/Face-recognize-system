@@ -18,7 +18,7 @@ class MainFrame:
     def __init__(self, db_connector, model_service):
         self.db_connector = db_connector
         self.model_service = model_service
-        self.video_capture = cv2.VideoCapture(0)
+        self.video_capture = None
 
         self.root = tk.Tk()
         self.root.wm_protocol("WM_DELETE_WINDOW", self.on_close)
@@ -39,12 +39,12 @@ class MainFrame:
         btn_select.pack(expand="yes")
         btn_upload = tk.Button(self.root, text="Upload", command=self.upload, height=1)
         btn_upload.pack(expand="yes")
-        btn_pause = tk.Button(self.root, text="Pause", command=self.pause, height=1)
+        btn_pause = tk.Button(self.root, text="Start/Stop", command=self.control, height=1)
         btn_pause.pack(expand="yes")
         self.feature_dict = self.load_existing_users()
 
         self.stopEvent = threading.Event()
-        self.thread = threading.Thread(target=self.videoLoop, args=())
+        self.stopEvent.set()
         # self.thread.start()
 
     def load_existing_users(self):
@@ -91,6 +91,7 @@ class MainFrame:
             self.file_label.config(text=path)
 
     def videoLoop(self):
+        self.video_capture = cv2.VideoCapture(0)
         try:
             # keep looping over frames until we are instructed to stop
             while not self.stopEvent.is_set():
@@ -143,12 +144,14 @@ class MainFrame:
         self.video_capture.release()
         self.root.quit()
 
-    def pause(self):
+    def control(self):
         if self.stopEvent.is_set():
             self.stopEvent.clear()
-            self.thread.start()
+            thread = threading.Thread(target=self.videoLoop, args=())
+            thread.start()
         else:
             self.stopEvent.set()
+            self.video_capture.release()
 
 
 if __name__ == '__main__':
