@@ -57,8 +57,6 @@ class MainFrame:
             face_feature = np.frombuffer(res[2])
             result[user_unique_name] = face_feature
         print(result)
-        similarity = np.linalg.norm(result['hchchchc1'] - result['wangyi2'])
-        print(similarity)
         return result
 
     def upload(self):
@@ -74,7 +72,7 @@ class MainFrame:
             (top, right, bottom, left) = locations[0]
             face = picture[top:bottom, left:right, :]
             face = cv2.resize(face, (160, 160))
-            # cv2.imshow('Video', face)
+            misc.imsave('upload_face.jpg',face)
 
             processed_face = face.reshape([1, input_size, input_size, 3]).astype(np.float32)
             face_feature = self.model_service.predict(processed_face)
@@ -109,10 +107,18 @@ class MainFrame:
                     face0 = cv2.resize(face0, (160, 160))
                     face0 = face0.reshape([1, 160, 160, 3]).astype(np.float32)
                     feature = self.model_service.predict(face0)
-                    print('feature shape', feature.shape)
+                    min_difference = 1
+                    name = ''
                     for k, v in self.feature_dict.items():
-                        similarity = np.linalg.norm(v - feature)
-                        print('similarity with {} is {}'.format(k, similarity))
+                        difference = np.linalg.norm(v - feature)
+                        if difference < min_difference:
+                            min_difference = difference
+                            name = k
+                        print('difference with {} is {}'.format(k, difference))
+                    if min_difference<0.4:
+                        print("You looks like {} with a confidence{}".format(name,1/min_difference))
+                    print('=====================================')
+                    time.sleep(1)
 
                 # Display the results
                 for top, right, bottom, left in face_locations:

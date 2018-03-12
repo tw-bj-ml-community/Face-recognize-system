@@ -15,6 +15,9 @@ class ModelService:
         self.model_name = model_name
 
     def predict(self, picture):
+        #prewhiten, this is used in training, so we need this on prediction.
+        picture = self.prewhiten(picture)
+
         request = predict_pb2.PredictRequest()
         request.model_spec.name = self.model_name
         request.inputs['images'].CopyFrom(
@@ -23,3 +26,10 @@ class ModelService:
         # Call the prediction server
         result = self.stub.Predict(request, 10.0)  # 10 secs timeout
         return np.array(result.outputs['scores'].float_val)
+
+    def prewhiten(self, picture):
+        mean = np.mean(picture)
+        std = np.std(picture)
+        std_adj = np.maximum(std, 1.0 / np.sqrt(picture.size))
+        picture = np.multiply(np.subtract(picture, mean), 1 / std_adj)
+        return picture
