@@ -1,6 +1,12 @@
 # Custom added rules
 .idea/**
 !*/.gitkeep
+resources/*
+tmp/*
+fake_facenet/logs/*
+fake_facenet/pretrained_model/*
+fake_facenet/tf_serving_model/*
+
 
 # Created by https://www.gitignore.io/api/macos,python,pycharm,intellij
 

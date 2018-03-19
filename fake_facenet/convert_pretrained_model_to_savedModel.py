@@ -2,15 +2,8 @@
 This file is used for convert the pretrained inception-resnet-v1 model to a SavedModel(Which is used by tensorflow serving)
 '''
 import os
-import hchan.fake_facenet.inception_resnet_v1 as inception_resnet_v1
-import tensorflow as tf
-import numpy as np
-from tensorflow.python.tools.inspect_checkpoint import print_tensors_in_checkpoint_file
-from scipy import misc
-from tensorflow.python.saved_model import tag_constants
-from tensorflow.python.saved_model import signature_constants
 
-from hchan.fake_facenet.inception_resnet_v1 import *
+from fake_facenet.inception_resnet_v1 import *
 
 EXPORT_PATH = './tf_serving_model/'
 MODEL_VERSION = 1

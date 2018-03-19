@@ -1,17 +1,17 @@
+import threading
+import time
 import tkinter as tk
 import tkinter.filedialog
 
-import time
-from PIL import Image
-from PIL import ImageTk
-
-from hchan.fr_system.db_connector import DBManager
-from hchan.fr_system.tf_serving_connector import ModelService
-from scipy import misc
-import numpy as np
-import threading
 import cv2
 import face_recognition
+import numpy as np
+from PIL import Image
+from PIL import ImageTk
+from fr_system.tf_serving_connector import ModelService
+from scipy import misc
+
+from fr_system.db_connector import DBManager
 
 
 class MainFrame:
