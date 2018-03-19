@@ -23,6 +23,7 @@ class MainFrame:
         self.root = tk.Tk()
         self.root.wm_protocol("WM_DELETE_WINDOW", self.on_close)
 
+        # Initialize user interface.
         self.monitor_frame = tk.Frame(self.root, height=180, width=320)
         self.monitor_frame.pack_propagate(0)  # don't shrink
         self.monitor = tk.Label(self.monitor_frame)
@@ -34,19 +35,21 @@ class MainFrame:
         self.name_entry.pack(fill=tk.X)
         self.file_label = tk.Label(self.root, text="File Name", bg="green", fg="black")
         self.file_label.pack(fill=tk.X)
-
         btn_select = tk.Button(self.root, text="Select an image", command=self.select_image, height=1)
         btn_select.pack(expand="yes")
         btn_upload = tk.Button(self.root, text="Upload", command=self.upload, height=1)
         btn_upload.pack(expand="yes")
         btn_pause = tk.Button(self.root, text="Start/Stop", command=self.control, height=1)
         btn_pause.pack(expand="yes")
+
+
         self.feature_dict = self.load_existing_users()
 
         self.stopEvent = threading.Event()
         self.stopEvent.set()
         # self.thread.start()
 
+    # Load user face feature.
     def load_existing_users(self):
         result = {}
         responses = self.db_connector.execute_select(
@@ -67,8 +70,9 @@ class MainFrame:
             input_size = 160
             picture = misc.imread(image_path)
             locations = face_recognition.face_locations(picture)
-            print('selected picture size', picture.shape)
-            print('find {} face on {}'.format(len(locations), image_path))
+            # print('selected picture size', picture.shape)
+            # print('find {} face on {}'.format(len(locations), image_path))
+
             (top, right, bottom, left) = locations[0]
             face = picture[top:bottom, left:right, :]
             face = cv2.resize(face, (160, 160))
@@ -116,7 +120,7 @@ class MainFrame:
                             min_difference = difference
                             name = k
                         print('difference with {} is {}'.format(k, difference))
-                    if min_difference<0.4:
+                    if min_difference < 0.4:
                         print("You looks like {} with a confidence{}".format(name,1/min_difference))
                     print('=====================================')
                     time.sleep(1)
