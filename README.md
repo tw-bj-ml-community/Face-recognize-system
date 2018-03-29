@@ -5,20 +5,13 @@ We are learning machine leaning techs and intend to create a face recognize chec
 #### Software requirement:
 1. Python 3.6.x
 2. OpenCV 3.4
-3. face_recognition(this lib depends on dlib)
-
-
-
-pip3 install face_recognition
-pip3 install protobuf
+3. dlib
+4. face_recognition(this is an python lib depends on dlib), it is only needed in some demos
+5. protobuf(python lib)
  
 
 
-
-
-[Install dlib on mac](https://gist.github.com/ageitgey/629d75c1baac34dfa5ca2a1928a7aeaf)
-
-Install opencv with python3.6
+Install opencv with python3.6 on mac
 ===========================
 [参考1](https://www.pyimagesearch.com/2016/12/19/install-opencv-3-on-macos-with-homebrew-the-easy-way/)
 [参考2](https://www.learnopencv.com/install-opencv3-on-macos/)
@@ -28,6 +21,13 @@ Install opencv with python3.6
 4. 将库连接到我们使用的python包里，下面路径可能需要修改
 echo /usr/local/opt/opencv/lib/python3.6/site-packages >> 
 /usr/local/lib/python3.6/site-packages/opencv3.pth
+
+## [Install dlib on mac](https://gist.github.com/ageitgey/629d75c1baac34dfa5ca2a1928a7aeaf)
+
+## install others 
+
+pip install protobuf
+[install tensorflow-serving-api on py3](https://github.com/tensorflow/serving/issues/700)
 
 
 Pre-trained model 
@@ -48,13 +48,11 @@ You need download the pretrained model, unzip it and put all the files into 'pre
 
 Serve model with tensorflow-serving
 ===================
-More details about TF serving and client demo can be found [here](https://a7744hsc.github.io/machine/learning/2018/03/06/Tensorflow-Serving-101.html), a chinese toturial about TF serving.
+Details about how to use TF serving and a client demo can be found [here](https://a7744hsc.github.io/machine/learning/2018/03/06/Tensorflow-Serving-101.html), a chinese toturial about TF serving.
 
 
 
-
-
-A simple way to start a tf-serving docker.
+A simpler way to start a tf-serving docker.
 =========================
 1. Download the latest model from [here](https://drive.google.com/drive/folders/11O5O0pHGy1LrEgLitV6cAceHBJb8nlhZ) 
 2. Unzip it into  dockers/all_in_one/models
