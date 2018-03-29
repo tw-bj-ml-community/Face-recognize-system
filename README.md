@@ -5,7 +5,14 @@ We are learning machine leaning techs and intend to create a face recognize chec
 #### Software requirement:
 1. Python 3.6.x
 2. OpenCV 3.4
-3. face_recognition(dlib) 
+3. face_recognition(this lib depends on dlib)
+
+
+
+pip3 install face_recognition
+pip3 install protobuf
+ 
+
 
 
 
@@ -41,5 +48,26 @@ You need download the pretrained model, unzip it and put all the files into 'pre
 
 Serve model with tensorflow-serving
 ===================
-1. Tensorflow-serving only support linux, on mac we need use [tf-serving with docker](https://www.tensorflow.org/serving/docker)
-2. More details about TF serving and client demo can be found [here](https://a7744hsc.github.io/machine/learning/2018/03/06/Tensorflow-Serving-101.html), a chinese toturial about TF serving.
+More details about TF serving and client demo can be found [here](https://a7744hsc.github.io/machine/learning/2018/03/06/Tensorflow-Serving-101.html), a chinese toturial about TF serving.
+
+
+
+
+
+A simple way to start a tf-serving docker.
+=========================
+1. Download the latest model from [here](https://drive.google.com/drive/folders/11O5O0pHGy1LrEgLitV6cAceHBJb8nlhZ) 
+2. Unzip it into  dockers/all_in_one/models
+3. Build the image use following command
+   ``` 
+   cd ./dockers/all_in_one  
+   docker build --pull -t $USER/all_in_one .
+   ```
+4. Start the tf-serving server `docker run -p 9000:9000 $USER/all_in_one` 
+
+
+TO DO
+===================
+1. extract face feature with different regions
+
+
