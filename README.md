@@ -1,6 +1,7 @@
 # Face-recognize-system
 
-We are learning machine leaning techs and intend to create a face recognize check in system.
+This is a face recognition access control system. 
+We are learning machine learning and intend to create a face recognition access control system. So，our focus is on learning machine learning algorithms. 
 
 #### Software requirement:
 1. Python 3.6.x
