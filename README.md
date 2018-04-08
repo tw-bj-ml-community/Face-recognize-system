@@ -9,6 +9,7 @@ We are learning machine learning and intend to create a face recognition access 
 3. dlib
 4. face_recognition(this is an python lib depends on dlib), it is only needed in some demos
 5. protobuf(python lib)
+6. docker
  
 
 ### Install poencv with python3.6 on mac:
@@ -31,6 +32,7 @@ echo /usr/local/opt/opencv/lib/python3.6/site-packages >>
 1. pip install face_recognition
 2. pip install protobuf
 3. [install tensorflow-serving-api on py3](https://github.com/tensorflow/serving/issues/700)
+4. [install docker](https://docs.docker.com/docker-for-mac/install/)
 
 ## 2.Pre-trained model: 
 
