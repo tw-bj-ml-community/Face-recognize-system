@@ -12,7 +12,7 @@ We are learning machine learning and intend to create a face recognition access 
 6. docker
  
 
-### Install poencv with python3.6 on mac:
+### Install opencv with python3.6 on mac:
 
 [参考1](https://www.pyimagesearch.com/2016/12/19/install-opencv-3-on-macos-with-homebrew-the-easy-way/)
 [参考2](https://www.learnopencv.com/install-opencv3-on-macos/)
